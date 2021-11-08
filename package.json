@@ -14,7 +14,6 @@
     "@middy/core": "^1.5.2",
     "@middy/http-json-body-parser": "^1.5.2",
     "aws-sdk": "^2.1022.0",
-    "serverless-dotenv-plugin": "^3.10.0",
     "serverless-dynamodb-local": "^0.2.40",
     "uuid": "^8.3.2"
   },
