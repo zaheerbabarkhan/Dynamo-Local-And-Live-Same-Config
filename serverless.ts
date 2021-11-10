@@ -1,7 +1,10 @@
 import type { AWS } from '@serverless/typescript';
 
-import hello from '@functions/hello';
-
+import hello from '@functions/addUser';
+import update from '@functions/updateUser';
+import getUser from '@functions/getUserThroughIdAndFilter';
+import filterUser from '@functions/filterUser';
+import conditionalUpdate from '@functions/conditionalUpdate';
 const serverlessConfiguration: AWS = {
 	service: 'dynamo-crud-for-the-first',
 	frameworkVersion: '2',
@@ -9,13 +12,8 @@ const serverlessConfiguration: AWS = {
 		'dynamodb': {
 			'stages': ['dev'],
 			'start': {
-				'port': 8000,
-				'inMemory': true,
-				'heapInitial': '200m',
-				'heapMax': '1g',
 				'migrate': true,
 				'seed': true,
-				'convertEmptyValues': true,
 			},
 		},
 		TableName: 'MyFirstEvertableOfDynamoDB',
@@ -48,7 +46,7 @@ const serverlessConfiguration: AWS = {
 		],
 	},
 	// import the function via paths
-	functions: { hello },
+	functions: { hello, update, getUser, filterUser, conditionalUpdate },
 	resources: {
 		Resources: {
 			dynamoTable: {
